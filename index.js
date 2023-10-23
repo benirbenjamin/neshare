@@ -110,223 +110,224 @@ app.get('/', (req, res) => {
 }) })
 })
 
-// app.get('/Logout', function(req, res){
-//   req.logout(function(err) {
-//     if (err) { return next(err); }
-//     res.redirect('/');
-//   });
-// });
-// app.get('/0/:Name',(req,res)=>{
-//   let Name=req.params.Name
-//   paymentWeek.findOne({userName:Name}).then((results)=>{
-//     paymentMonth.findOne({userName:Name}).then((results1)=>{
-//     paymentYear.findOne({userName:Name}).then((results2)=>{
-//       ClickableLink.find().then((links)=>{
-//         if(results1!= null){
-//           let NewClicks1= results1.clicks+1;
-//           let newCash1= results1.CashLeft+3;
-//           paymentMonth.updateOne({userName:Name},{clicks:NewClicks1},function(){
-//             paymentMonth.updateOne({userName:Name},{CashLeft:newCash1},function(){
-//             res.redirect(links[0].link);
-//             ClickableLink.updateOne({userName:Name},{clicks:NewClicks1},function(){
+app.get('/Logout', function(req, res){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
+app.get('/0/:Name',(req,res)=>{
+  let Name=req.params.Name
+  paymentWeek.findOne({userName:Name}).then((results)=>{
+    paymentMonth.findOne({userName:Name}).then((results1)=>{
+    paymentYear.findOne({userName:Name}).then((results2)=>{
+      ClickableLink.find().then((links)=>{
+        if(results1!= null){
+          let NewClicks1= results1.clicks+1;
+          let newCash1= results1.CashLeft+3;
+          paymentMonth.updateOne({userName:Name},{clicks:NewClicks1},function(){
+            paymentMonth.updateOne({userName:Name},{CashLeft:newCash1},function(){
+            res.redirect(links[0].link);
+            ClickableLink.updateOne({userName:Name},{clicks:NewClicks1},function(){
 
-//             })
-//           }) })
-//         }
-//       })
-//   })})})
-// })
-// app.get('/1/:Name',(req,res)=>{
-//   let Name=req.params.Name
-//   paymentWeek.findOne({userName:Name}).then((results)=>{
-//     paymentMonth.findOne({userName:Name}).then((results1)=>{
-//     paymentYear.findOne({userName:Name}).then((results2)=>{
-//       ClickableLink.find().then((links)=>{
-//         if(results1!= null){
-//           let NewClicks1= results1.clicks+1;
-//           let newCash1= results1.CashLeft+3;
-//           paymentMonth.updateOne({userName:Name},{clicks:NewClicks1},function(){
-//             paymentMonth.updateOne({userName:Name},{CashLeft:newCash1},function(){
-//             res.redirect(links[1].link);
-//             ClickableLink.updateOne({userName:Name},{clicks:NewClicks1},function(){
+            })
+          }) })
+        }
+      })
+  })})})
+})
+app.get('/1/:Name',(req,res)=>{
+  let Name=req.params.Name
+  paymentWeek.findOne({userName:Name}).then((results)=>{
+    paymentMonth.findOne({userName:Name}).then((results1)=>{
+    paymentYear.findOne({userName:Name}).then((results2)=>{
+      ClickableLink.find().then((links)=>{
+        if(results1!= null){
+          let NewClicks1= results1.clicks+1;
+          let newCash1= results1.CashLeft+3;
+          paymentMonth.updateOne({userName:Name},{clicks:NewClicks1},function(){
+            paymentMonth.updateOne({userName:Name},{CashLeft:newCash1},function(){
+            res.redirect(links[1].link);
+            ClickableLink.updateOne({userName:Name},{clicks:NewClicks1},function(){
 
-//             })
-//           }) })
-//         }
-//       })
-//   })})})
-// })
-// app.get('/2/:Name',(req,res)=>{
-//   let Name=req.params.Name
-//   paymentWeek.findOne({userName:Name}).then((results)=>{
-//     paymentMonth.findOne({userName:Name}).then((results1)=>{
-//     paymentYear.findOne({userName:Name}).then((results2)=>{
-//       ClickableLink.find().then((links)=>{
-//         if(results1!= null){
-//           let NewClicks1= results1.clicks+1;
-//           let newCash1= results1.CashLeft+3;
-//           paymentMonth.updateOne({userName:Name},{clicks:NewClicks1},function(){
-//             paymentMonth.updateOne({userName:Name},{CashLeft:newCash1},function(){
-//             res.redirect(links[2].link);
-//             ClickableLink.updateOne({userName:Name},{clicks:NewClicks1},function(){
+            })
+          }) })
+        }
+      })
+  })})})
+})
+app.get('/2/:Name',(req,res)=>{
+  let Name=req.params.Name
+  paymentWeek.findOne({userName:Name}).then((results)=>{
+    paymentMonth.findOne({userName:Name}).then((results1)=>{
+    paymentYear.findOne({userName:Name}).then((results2)=>{
+      ClickableLink.find().then((links)=>{
+        if(results1!= null){
+          let NewClicks1= results1.clicks+1;
+          let newCash1= results1.CashLeft+3;
+          paymentMonth.updateOne({userName:Name},{clicks:NewClicks1},function(){
+            paymentMonth.updateOne({userName:Name},{CashLeft:newCash1},function(){
+            res.redirect(links[2].link);
+            ClickableLink.updateOne({userName:Name},{clicks:NewClicks1},function(){
 
-//             })
-//           }) })
-//         }
-//       })
-//   })})})
-// })
-// app.get('/3/:Name',(req,res)=>{
-//   let Name=req.params.Name
-//   paymentWeek.findOne({userName:Name}).then((results)=>{
-//     paymentMonth.findOne({userName:Name}).then((results1)=>{
-//     paymentYear.findOne({userName:Name}).then((results2)=>{
-//       ClickableLink.find().then((links)=>{
-//         if(results1!= null){
-//           let NewClicks1= results1.clicks+1;
-//           let newCash1= results1.CashLeft+3;
-//           paymentMonth.updateOne({userName:Name},{clicks:NewClicks1},function(){
-//             paymentMonth.updateOne({userName:Name},{CashLeft:newCash1},function(){
-//             res.redirect(links[3].link);
-//             ClickableLink.updateOne({userName:Name},{clicks:NewClicks1},function(){
+            })
+          }) })
+        }
+      })
+  })})})
+})
+app.get('/3/:Name',(req,res)=>{
+  let Name=req.params.Name
+  paymentWeek.findOne({userName:Name}).then((results)=>{
+    paymentMonth.findOne({userName:Name}).then((results1)=>{
+    paymentYear.findOne({userName:Name}).then((results2)=>{
+      ClickableLink.find().then((links)=>{
+        if(results1!= null){
+          let NewClicks1= results1.clicks+1;
+          let newCash1= results1.CashLeft+3;
+          paymentMonth.updateOne({userName:Name},{clicks:NewClicks1},function(){
+            paymentMonth.updateOne({userName:Name},{CashLeft:newCash1},function(){
+            res.redirect(links[3].link);
+            ClickableLink.updateOne({userName:Name},{clicks:NewClicks1},function(){
 
-//             })
-//           }) })
-//         }
-//       })
-//   })})})
-// })
+            })
+          }) })
+        }
+      })
+  })})})
+})
 
-// app.get('/Admin', (req, res) => {
-//       const user=req.user
-//       if(user.Email=='munaziribnm@gmail.com'||user.Email=='nebelucoltd@gmail.com'){
-//       paymentYear.find().then((usersYear)=>{
-//         paymentMonth.find().then((usersMonth)=>{
-//           paymentWeek.find().then((usersWeek)=>{
-//             UserModel.find().then((results)=>{
-//             ClickableLink.find().then((links)=>{
-//               bikuza.find().then((withdrawers)=>{
-//               res.render('Admindashbaord',{users:results,usersYear:usersYear,usersMonth:usersMonth,usersWeek:usersWeek,link:links,withdrawers:withdrawers})
-//             })
-//             })
-//        }) })})
-// })}else{res.redirect('/')}})
+app.get('/Admin', (req, res) => {
+      const user=req.user
+      if(user.Email=='munaziribnm@gmail.com'||user.Email=='nebelucoltd@gmail.com'){
+      paymentYear.find().then((usersYear)=>{
+        paymentMonth.find().then((usersMonth)=>{
+          paymentWeek.find().then((usersWeek)=>{
+            UserModel.find().then((results)=>{
+            ClickableLink.find().then((links)=>{
+              bikuza.find().then((withdrawers)=>{
+              res.render('Admindashbaord',{users:results,usersYear:usersYear,usersMonth:usersMonth,usersWeek:usersWeek,link:links,withdrawers:withdrawers})
+            })
+            })
+       }) })})
+})}else{res.redirect('/')}})
 
-// app.post('/saveWhatsappNumber/:Name',(req,res)=>{
-//   let Name=req.params.Name
-//   paymentWeek.findOne({userName:Name}).then((results)=>{
-//     paymentMonth.findOne({userName:Name}).then((results1)=>{
-//     paymentYear.findOne({userName:Name}).then((results2)=>{
-//       if(results!= null){
-//         let newNumber="+25"+req.body.phone
-//        paymentWeek.updateOne({userName:Name},{PhoneNumber:newNumber},function(err,doc){
-//         if(err){
-//           console.log(err)
-//         }
-//        })
-//       }else if(results1!= null){
-//         let newNumber="+25"+req.body.phone
-//         paymentMonth.updateOne({userName:Name},{PhoneNumber:newNumber},function(err,doc){
-//          if(err){
-//            console.log(err)
-//          }
-//         })
-//       }else if(results2!= null){
-//         let newNumber="+25"+req.body.phone
-//        paymentYear.updateOne({userName:Name},{PhoneNumber:newNumber},function(err,doc){
-//         if(err){
-//           console.log(err)
-//         }
-//        })
-//       }
-//   })})})
-// })
-// app.get('/Advertiser',(req,res)=>{
-//   if(req.user){
-//     paymentYear.find({tx_ref:user.paymentId}).then((paymentres)=>{
-//       paymentMonth.find({tx_ref:user.paymentId}).then((paymentres2)=>{
-//         paymentWeek.find({tx_ref:user.paymentId}).then((paymentres3)=>{
-//          if (paymentres.length >0){
-//           res.render('Advertiser', { user: req.user,paymentAD:paymentres[0]})
-//       }else if(paymentres2.length >0){
-//         res.render('Advertiser', { user: req.user,paymentAD:paymentres2[0]})
+app.post('/saveWhatsappNumber/:Name',(req,res)=>{
+  let Name=req.params.Name
+  paymentWeek.findOne({userName:Name}).then((results)=>{
+    paymentMonth.findOne({userName:Name}).then((results1)=>{
+    paymentYear.findOne({userName:Name}).then((results2)=>{
+      if(results!= null){
+        let newNumber="+25"+req.body.phone
+       paymentWeek.updateOne({userName:Name},{PhoneNumber:newNumber},function(err,doc){
+        if(err){
+          console.log(err)
+        }
+       })
+      }else if(results1!= null){
+        let newNumber="+25"+req.body.phone
+        paymentMonth.updateOne({userName:Name},{PhoneNumber:newNumber},function(err,doc){
+         if(err){
+           console.log(err)
+         }
+        })
+      }else if(results2!= null){
+        let newNumber="+25"+req.body.phone
+       paymentYear.updateOne({userName:Name},{PhoneNumber:newNumber},function(err,doc){
+        if(err){
+          console.log(err)
+        }
+       })
+      }
+  })})})
+})
+app.get('/Advertiser',(req,res)=>{
+  if(req.user){
+    paymentYear.find({tx_ref:user.paymentId}).then((paymentres)=>{
+      paymentMonth.find({tx_ref:user.paymentId}).then((paymentres2)=>{
+        paymentWeek.find({tx_ref:user.paymentId}).then((paymentres3)=>{
+         if (paymentres.length >0){
+          res.render('Advertiser', { user: req.user,paymentAD:paymentres[0]})
+      }else if(paymentres2.length >0){
+        res.render('Advertiser', { user: req.user,paymentAD:paymentres2[0]})
 
-//       }else if(paymentres3.length >0){
-//         res.render('Advertiser', { user: req.user,paymentAD:paymentres3[0]})
-//       }else{
-//         res.render('Advertiser', { user: req.user,paymentAD:{PaymentStatus:"unpayed"}})
-//       }
+      }else if(paymentres3.length >0){
+        res.render('Advertiser', { user: req.user,paymentAD:paymentres3[0]})
+      }else{
+        res.render('Advertiser', { user: req.user,paymentAD:{PaymentStatus:"unpayed"}})
+      }
 
-//      }) })})
-//     }else{
-//       res.render('Advertiser',{user:req.user})
-//     }
-// })
-
-
-// //app.post('/SendMessageIndividual',(req,res)=>{
-// //let message={
-// //             from: 'duterestory@gmail.com', // sender address
-// //             to: req.body.Email, // list of receivers
-// //             subject: req.body.title, // Subject line
-// //             text: req.body.message, // plain text body
-// //             html: "<b>Hello world?</b>", // html body
-// //           }
-// //   main(message);
-// //})
-// app.post('/addLikes', (req, res) => {
-//   let userID = req.user.userName;
-//   let d=req.body.identity;
-
-//   let idF=req.body.Id;
-
-//   recordings.updateOne({RecordingId:idF}, { $addToSet: { likes: userID } }, function (err, docs) {
-//     if (err) {
-//       console.log(err)
-//     }
-//   })
-
-//    UserModel.findOne({userName:d}).then((results)=>{
-//      let newLikes = results.likes+1
-//      UserModel.updateOne({userName:d},{likes:newLikes},function (err, docs) {
-//        if (err) {
-//          console.log(err)
-//        }
-//      })
-//    })
-
-// })
-// app.post('/approveYear',(req,res)=>{
-//   let approveId=req.body.approveId
-//   let ida=req.body.approveIda
-//   let views=req.body.views
-//   let filter={id:approveId};
-//    paymentYear.findById(approveId).then((results)=>{
-//     let Views=results.clicks+parseInt(views)
-//     let newMoney=Views*5
-//     paymentYear.updateOne(filter,{clicks:Views},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//     paymentYear.updateOne(filter,{CashLeft:newMoney},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//     paymentYear.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//    })
-//    res.redirect('/Admin')
-// })
-// app.post('/Votting',(req,res)=>{
-//   let user=req.user
-//   if(req.body.Vote==0){
-//     req.flash('message1','shyiramo amajwi atangana na zero')
-//     req.redirect('/')
+     }) })})
+    }else{
+      res.render('Advertiser',{user:req.user})
+    }
+})
 
 
-//   }else{
+//app.post('/SendMessageIndividual',(req,res)=>{
+//let message={
+//             from: 'duterestory@gmail.com', // sender address
+//             to: req.body.Email, // list of receivers
+//             subject: req.body.title, // Subject line
+//             text: req.body.message, // plain text body
+//             html: "<b>Hello world?</b>", // html body
+//           }
+//   main(message);
+//})
+app.post('/addLikes', (req, res) => {
+  let userID = req.user.userName;
+  let d=req.body.identity;
+
+  let idF=req.body.Id;
+
+  recordings.updateOne({RecordingId:idF}, { $addToSet: { likes: userID } }, function (err, docs) {
+    if (err) {
+      console.log(err)
+    }
+  })
+
+   UserModel.findOne({userName:d}).then((results)=>{
+     let newLikes = results.likes+1
+     UserModel.updateOne({userName:d},{likes:newLikes},function (err, docs) {
+       if (err) {
+         console.log(err)
+       }
+     })
+   })
+
+})
+app.post('/approveYear',(req,res)=>{
+  let approveId=req.body.approveId
+  let ida=req.body.approveIda
+  let views=req.body.views
+  let filter={id:approveId};
+   paymentYear.findById(approveId).then((results)=>{
+    let Views=results.clicks+parseInt(views)
+    let newMoney=Views*5
+    paymentYear.updateOne(filter,{clicks:Views},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+    paymentYear.updateOne(filter,{CashLeft:newMoney},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+    paymentYear.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+   })
+   res.redirect('/Admin')
+})
+app.post('/Votting',(req,res)=>{
+  let user=req.user
+  if(req.body.Vote==0){
+    req.flash('message1','shyiramo amajwi atangana na zero')
+    req.redirect('/')
+
+
+   }
+  //  else{
 
 //   const rw_mobile_moneytu =  async (payload)=>{
 
@@ -363,149 +364,149 @@ app.get('/', (req, res) => {
 //   }
 
 //   rw_mobile_moneytu(payloada)}
-// })
-// app.post('/abortYear',(req,res)=>{
-//   let approveId=req.body.abortId
-//   let ida=req.body.abortIda
-//   let filter={id:approveId};
-//   paymentYear.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
-//     if(err)throw err
-//     console.log('done')
-//   })
-//   DeleteFile(ida)
-//   res.redirect('/Admin')
-// })
-// app.post('/approveMonth',(req,res)=>{
-//   let approveId=req.body.approveId
-//   let ida=req.body.approveIda
-//   let views=req.body.views
+})
+app.post('/abortYear',(req,res)=>{
+  let approveId=req.body.abortId
+  let ida=req.body.abortIda
+  let filter={id:approveId};
+  paymentYear.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
+    if(err)throw err
+    console.log('done')
+  })
+  DeleteFile(ida)
+  res.redirect('/Admin')
+})
+app.post('/approveMonth',(req,res)=>{
+  let approveId=req.body.approveId
+  let ida=req.body.approveIda
+  let views=req.body.views
  
 
-//    paymentMonth.findById(approveId).then((results)=>{
-//     let filter={userName:results.userName};
-//     let Views=parseInt(results.clicks)+parseInt(views)
-//     let newMoney=Views*2
+   paymentMonth.findById(approveId).then((results)=>{
+    let filter={userName:results.userName};
+    let Views=parseInt(results.clicks)+parseInt(views)
+    let newMoney=Views*2
 
-//      console.log(results)
+     console.log(results)
 
-//     paymentMonth.updateOne(filter,{clicks:Views},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//     paymentMonth.updateOne(filter,{CashLeft:newMoney},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//     paymentMonth.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//    })
-//    res.redirect('/Admin')
-//  })
-//  app.post('/UpdatePhoneNumber',(req,res)=>{
-//   let user=req.user.userName;
-//   let filter={userName:user}
-//   let newPhone='+25'+req.body.phoneNum
-//   UserModel.updateOne(filter,{phoneNumber:newPhone},(err,doc)=>{
-//     if(err)throw err
-//    // console.log('done')
-//    res.redirect('/')
-//   })
-//  })
-//  app.post('/abortMonth',(req,res)=>{
-//   let approveId=req.body.abortId
-//   let ida=req.body.abortIda
+    paymentMonth.updateOne(filter,{clicks:Views},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+    paymentMonth.updateOne(filter,{CashLeft:newMoney},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+    paymentMonth.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+   })
+   res.redirect('/Admin')
+ })
+ app.post('/UpdatePhoneNumber',(req,res)=>{
+  let user=req.user.userName;
+  let filter={userName:user}
+  let newPhone='+25'+req.body.phoneNum
+  UserModel.updateOne(filter,{phoneNumber:newPhone},(err,doc)=>{
+    if(err)throw err
+   // console.log('done')
+   res.redirect('/')
+  })
+ })
+ app.post('/abortMonth',(req,res)=>{
+  let approveId=req.body.abortId
+  let ida=req.body.abortIda
  
-//    paymentMonth.findById(approveId).then((results)=>{
-//     let filter={userName:results.userName};
-//   paymentMonth.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
-//     if(err)throw err
-//     console.log('done')
-//   })})
-//     res.redirect('/Admin')
-//  })
-//  app.get('/Inkuru/:id',(req,res)=>{
-//   let id=req.params.id
-//   req.flash('inkuruShared',id)
-//   res.redirect('/')
-//  })
-//  app.post('/NewUrlTobeShared',(req,res)=>{
-//   ClickableLink({
-//     link:req.body.NewUrlTobeSharedred,
-//     Discription:req.body.DescriptionH
-//   }).save();
-//   res.redirect('/Admin')
+   paymentMonth.findById(approveId).then((results)=>{
+    let filter={userName:results.userName};
+  paymentMonth.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
+    if(err)throw err
+    console.log('done')
+  })})
+    res.redirect('/Admin')
+ })
+ app.get('/Inkuru/:id',(req,res)=>{
+  let id=req.params.id
+  req.flash('inkuruShared',id)
+  res.redirect('/')
+ })
+ app.post('/NewUrlTobeShared',(req,res)=>{
+  ClickableLink({
+    link:req.body.NewUrlTobeSharedred,
+    Discription:req.body.DescriptionH
+  }).save();
+  res.redirect('/Admin')
 
-//  })
-//  app.post('/DeleteTheLink',(req,res)=>{
-//   let id=req.body.identify
-//   ClickableLink.findByIdAndDelete(id,function (err, docs) {
-//     if (err){
-//         console.log(err)
-//     }
-//     else{
-//       res.redirect('/Admin');
-//     }
-// });
+ })
+ app.post('/DeleteTheLink',(req,res)=>{
+  let id=req.body.identify
+  ClickableLink.findByIdAndDelete(id,function (err, docs) {
+    if (err){
+        console.log(err)
+    }
+    else{
+      res.redirect('/Admin');
+    }
+});
 
-//  })
-//  app.post('/DeleteTheUser',(req,res)=>{
-//   ClickableLink({
-//     link:req.body.NewUrlTobeSharedred,
-//     Discription:req.body.DescriptionH
-//   }).save();
+ })
+ app.post('/DeleteTheUser',(req,res)=>{
+  ClickableLink({
+    link:req.body.NewUrlTobeSharedred,
+    Discription:req.body.DescriptionH
+  }).save();
 
-//  })
-//  app.post('/approveWeek',(req,res)=>{
-//   let approveId=req.body.approveId
-//   let ida=req.body.approveIda
-//   let views=req.body.views
-//   let filter={id:approveId};
-//    paymentWeek.findById(approveId).then((results)=>{
-//     let Views=results.clicks+parseInt(views)
-//     let newMoney=Views*5
-//     paymentWeek.updateOne(filter,{clicks:Views},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//     paymentWeek.updateOne(filter,{CashLeft:newMoney},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//     paymentWeek.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
-//       if(err)throw err
-//       console.log('done')
-//     })
-//    })
-//    res.redirect('/Admin')
-//  })
-//  app.post('/abortWeek',(req,res)=>{
-//   let approveId=req.body.abortId
-//   let ida=req.body.abortIda
-//   let filter={id:approveId};
-//   paymentWeek.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
-//     if(err)throw err
-//     console.log('done')
-//   })
-//   DeleteFile(ida)
-//   res.redirect('/Admin')
-//  })
-// app.post('/addComments', (req, res) => {
-//    let Profile=req.user.ProfilePhotoUrl;
-//    let Name=req.user.userName;
-//    let id=req.body.RecordingId;
-//    let Comment=req.body.comment
-//    new commentModel({
-//     RecorderId:id,
-//     userName:Name,
-//     userProfile:Profile,
-//      links:res,Comments:Comment
-//    }).save()
+ })
+ app.post('/approveWeek',(req,res)=>{
+  let approveId=req.body.approveId
+  let ida=req.body.approveIda
+  let views=req.body.views
+  let filter={id:approveId};
+   paymentWeek.findById(approveId).then((results)=>{
+    let Views=results.clicks+parseInt(views)
+    let newMoney=Views*5
+    paymentWeek.updateOne(filter,{clicks:Views},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+    paymentWeek.updateOne(filter,{CashLeft:newMoney},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+    paymentWeek.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
+      if(err)throw err
+      console.log('done')
+    })
+   })
+   res.redirect('/Admin')
+ })
+ app.post('/abortWeek',(req,res)=>{
+  let approveId=req.body.abortId
+  let ida=req.body.abortIda
+  let filter={id:approveId};
+  paymentWeek.updateOne(filter,{$pull :{WhatsappScreenShotPosts:ida}},(err,doc)=>{
+    if(err)throw err
+    console.log('done')
+  })
+  DeleteFile(ida)
+  res.redirect('/Admin')
+ })
+app.post('/addComments', (req, res) => {
+   let Profile=req.user.ProfilePhotoUrl;
+   let Name=req.user.userName;
+   let id=req.body.RecordingId;
+   let Comment=req.body.comment
+   new commentModel({
+    RecorderId:id,
+    userName:Name,
+    userProfile:Profile,
+     links:res,Comments:Comment
+   }).save()
 
-// })
-// app.post('/flutterWaveSubWeek', (req, res) => {
-
+})
+app.post('/flutterWaveSubWeek', (req, res) => {
+res.redirect('/')
 //   const rw_mobile_money =  async (payload)=>{
 
 //     try {
@@ -543,11 +544,12 @@ app.get('/', (req, res) => {
 
 //   }
 //   rw_mobile_money(payload)
-// })
+})
 
 
-// app.post('/flutterWaveSubMonth', (req, res) => {
+app.post('/flutterWaveSubMonth', (req, res) => {
 //   let user=req.user
+res.redirect('/')
 //   const rw_mobile_money =  async (payload)=>{
 
 //     try {
@@ -580,91 +582,92 @@ app.get('/', (req, res) => {
 
 //   }
 //   rw_mobile_money(payload)
-// })
+})
 
-// app.post('/FromWhatsapp',uresad.any(),(req,res)=>{
-//   console.log(req.files)
-//   let views=req.body.Views;
-//   const user = req.user;
-//   const d = new Date();
-// let text = d.toISOString();
-//   let originalname = user.userName+" "+views+" "+text+'.png'
-//   var folderId = user.folderId;
-//   var fileMetadata = {
-//     'name': [originalname],
-//     parents: [folderId]
-//   };
-//   var media = {
-//     mimeType: req.files[0].mimetype,
-//     body: bufferToStream(req.files[0].buffer)
-//   };
+app.post('/FromWhatsapp', uresad.any(),(req,res)=>{
+  console.log(req.files)
+  let views=req.body.Views;
+  const user = req.user;
+  const d = new Date();
+let text = d.toISOString();
+  let originalname = user.userName+" "+views+" "+text+'.png'
+  var folderId = user.folderId;
+  var fileMetadata = {
+    'name': [originalname],
+    parents: [folderId]
+  };
+  var media = {
+    mimeType: req.files[0].mimetype,
+    body: bufferToStream(req.files[0].buffer)
+  };
 
-//   totheDriversWhatsapp(fileMetadata, media, user);
-//   req.flash('message1','Yoherejwe tegereza iminsi itatu')
-//   res.redirect('/')
+  totheDriversWhatsapp(fileMetadata, media, user);
+  req.flash('message1','Yoherejwe tegereza iminsi itatu')
+  res.redirect('/')
 
-// })
-// app.get('/payment_callback/:userName', async (req, res) => {
+})
+app.get('/payment_callback/:userName', async (req, res) => {
 
-//  let user=req.user
-//   const transactionDetailsM = await paymentMonth.find({tx_ref:user.paymentId});
-//   const transactionDetailsW= await paymentWeek.find({tx_ref:user.paymentId});
-//   const transactionDetailsY=await paymentYear.find({tx_ref:user.paymentId});
-//   if (transactionDetailsM.length >0){
-//      const responseM= await flw.Transaction.verify({id:transactionDetailsM[0].tx_ref});
-//      if(responseM.message=="No transaction was found for this id" || responseM.status=="failed"){
-//       req.flash('message1','Ntiwatoye Antabwo ijwi ryawe ntiribarwa')
-//       res.redirect('/')
-//     }else{
-//       paymentMonth.updateOne({tx_ref:user.paymentId}, { PaymentStatus:"payed" }, function (err, docs) {
-//         if (err) {
-//           console.log(err)
-//         }
-//         req.flash('message1','Urakoze kwishyura Muryoherwe Na Cash')
-//         res.redirect('/')
-//       })
-//     }
-//   }else if(transactionDetailsW.length >0){
-//     const responseW = await flw.Transaction.verify({id:transactionDetailsW[0].tx_ref});
-//     if(responseM.message=="No transaction was found for this id" || responseW.status=="failed"){
-//       req.flash('message1','Ntiwishyuye')
-//       res.redirect('/')
-//     }else{
-//       paymentWeek.updateOne({tx_ref:user.paymentId}, { PaymentStatus:"payed" }, function (err, docs) {
-//         if (err) {
-//           console.log(err)
-//         }
-//         req.flash('message1','Urakoze kwishyura Muryoherwe Na Cash')
-//         res.redirect('/')
-//       })
-//     }
-//   }else if(transactionDetailsY.length >0){
-//     const responseY = await flw.Transaction.verify({id:transactionDetailsY[0].tx_ref});
-//     if(responseM.message=="No transaction was found for this id" ||responseY.status=="failed"){
-//       req.flash('message1','Ntiwishyuye')
-//       res.redirect('/')
-//     }else{
-//       paymentYear.updateOne({tx_ref:user.paymentId}, { PaymentStatus:"payed" }, function (err, docs) {
-//         if (err) {
-//           console.log(err)
-//         }
-//         req.flash('message1','Urakoze kwishyura Muryoherwe Na Cash Za Shares')
-//         res.redirect('/')
-//       })
-//     }
-//   } else{
-//     req.flash('message1','Ntiwishyuye')
-//         res.redirect('/')
-//   }
-// });
-// app.get('/Votting_CallBack/:userId', async (req, res) => {
+ let user=req.user
+  const transactionDetailsM = await paymentMonth.find({tx_ref:user.paymentId});
+  const transactionDetailsW= await paymentWeek.find({tx_ref:user.paymentId});
+  const transactionDetailsY=await paymentYear.find({tx_ref:user.paymentId});
+  if (transactionDetailsM.length >0){
+     const responseM= await flw.Transaction.verify({id:transactionDetailsM[0].tx_ref});
+     if(responseM.message=="No transaction was found for this id" || responseM.status=="failed"){
+      req.flash('message1','Ntiwatoye Antabwo ijwi ryawe ntiribarwa')
+      res.redirect('/')
+    }else{
+      paymentMonth.updateOne({tx_ref:user.paymentId}, { PaymentStatus:"payed" }, function (err, docs) {
+        if (err) {
+          console.log(err)
+        }
+        req.flash('message1','Urakoze kwishyura Muryoherwe Na Cash')
+        res.redirect('/')
+      })
+    }
+  }else if(transactionDetailsW.length >0){
+    const responseW = await flw.Transaction.verify({id:transactionDetailsW[0].tx_ref});
+    if(responseM.message=="No transaction was found for this id" || responseW.status=="failed"){
+      req.flash('message1','Ntiwishyuye')
+      res.redirect('/')
+    }else{
+      paymentWeek.updateOne({tx_ref:user.paymentId}, { PaymentStatus:"payed" }, function (err, docs) {
+        if (err) {
+          console.log(err)
+        }
+        req.flash('message1','Urakoze kwishyura Muryoherwe Na Cash')
+        res.redirect('/')
+      })
+    }
+  }else if(transactionDetailsY.length >0){
+    const responseY = await flw.Transaction.verify({id:transactionDetailsY[0].tx_ref});
+    if(responseM.message=="No transaction was found for this id" ||responseY.status=="failed"){
+      req.flash('message1','Ntiwishyuye')
+      res.redirect('/')
+    }else{
+      paymentYear.updateOne({tx_ref:user.paymentId}, { PaymentStatus:"payed" }, function (err, docs) {
+        if (err) {
+          console.log(err)
+        }
+        req.flash('message1','Urakoze kwishyura Muryoherwe Na Cash Za Shares')
+        res.redirect('/')
+      })
+    }
+  } else{
+    req.flash('message1','Ntiwishyuye')
+        res.redirect('/')
+  }
+});
+ app.get('/Votting_CallBack/:userId', async (req, res) => {
+  res.redirect('/')
 //   let userID=req.params.userId
 //   let user=req.user
 //    const transactionDetailsM = await UserModel.find({paymentId:user.paymentId});
 //    if (transactionDetailsM.length >0){
 //       const responseM= await flw.Transaction.verify({id:transactionDetailsM[0].paymentId});
 //       if(responseM.message=="No transaction was found for this id" || responseM.status=="failed"){
-//        req.flash('message1','Ntiwishyuye Antabwo ijwi ryawe ntiribarwa')
+//        req.flash('message1','Ntiwishyuye, ijwi ryawe ntiribarwa')
 //        res.redirect('/')
 //      }else{
 //       UserModel.findById(userID).then((results)=>{
@@ -688,9 +691,11 @@ app.get('/', (req, res) => {
 //      req.flash('message1','Ntiwishyuye')
 //          res.redirect('/')
 //    }
-//  });
-// app.get('/payment_callback_Advert/:userName', async (req, res) => {
+ });
 
+ app.get('/payment_callback_Advert/:userName', async (req, res) => {
+
+  res.redirect('/')
 //   let user=req.user
 //    const transactionDetailsM = await paymentMonthAdvert.find({tx_ref:user.paymentIdAdvert});
 //    const transactionDetailsW= await paymentWeekAdvert.find({tx_ref:user.paymentIdAdvert});
@@ -741,9 +746,10 @@ app.get('/', (req, res) => {
 //      req.flash('message1','Ntiwishyuye')
 //          res.redirect('/')
 //    }
-//  });
+});
 
-// app.post('/flutterWaveSubYear', (req, res) => {
+app.post('/flutterWaveSubYear', (req, res) => {
+  res.redirect('/')
 //  let user=req.user
 //   const rw_mobile_money =  async (payload)=>{
 
@@ -782,11 +788,11 @@ app.get('/', (req, res) => {
 
 //   }
 //   rw_mobile_money(payload)
-// })
+})
 
 
-// app.post('/flutterWaveWithDraw', (req, res) => {
-
+app.post('/flutterWaveWithDraw', (req, res) => {
+res.redirect('/')
 //   let kid=req.body.kid.trim();
 //   let amount=req.body.Amount
 //   console.log(kid)
@@ -820,83 +826,87 @@ app.get('/', (req, res) => {
 //         res.redirect('/');
 //       }
 //     }
-//    }) })
-//    app.post('/flutterWaveWithDraw2', (req, res) => {
+//    })
+ })
+  app.post('/flutterWaveWithDraw2', (req, res) => {
+res.redirect('/')
 
-//     let kid=req.body.kid.trim();
-//     let amount=req.body.Amount
-//     console.log(kid)
-//     new bikuza({
-//           userName:req.body.idl,
-//           Phone:req.user.phoneNumber,
-//           Ammount:req.body.Amount
-//         })
-//       paymentMonth.find({tx_ref:kid}).then((paymentres2)=>{
+  //   let kid=req.body.kid.trim();
+  //   let amount=req.body.Amount
+  //   console.log(kid)
+  //   new bikuza({
+  //         userName:req.body.idl,
+  //         Phone:req.user.phoneNumber,
+  //         Ammount:req.body.Amount
+  //       })
+  //     paymentMonth.find({tx_ref:kid}).then((paymentres2)=>{
 
-//          if (paymentres2.length >0){
-//         let ceck=paymentres2[0].CashLeft-amount
-//           if (ceck>0){
+  //        if (paymentres2.length >0){
+  //       let ceck=paymentres2[0].CashLeft-amount
+  //         if (ceck>0){
 
-//             req.flash('message1',`Amafaranga aroherezwa mbere  yamasaha 24 narenga mutarayabona muhamagare +250790457824`);
-//             res.redirect('/');
-//             paymentMonth.findByIdAndDelete(paymentres2.id).then(()=>{
-//               console.log('deleted')
-//             })
-//           }else{
-//           req.flash('message1',`Bikuza atari hejuru yayo wakoreye,Wakoreye ${paymentres[0].CashLeft}RWF,ibyo bindi n' ubujura, tuzafunga account yawe niwongera`);
-//           res.redirect('/');
-//         }
-//       }
-//      }) })
-// app.post('/addViews', (req, res) => {
-//   let Recordingid = req.body.audioTitleViews;
-//   let UserName = req.body.audioTitleViews2;
+  //           req.flash('message1',`Amafaranga aroherezwa mbere  yamasaha 24 narenga mutarayabona muhamagare +250790457824`);
+  //           res.redirect('/');
+  //           paymentMonth.findByIdAndDelete(paymentres2.id).then(()=>{
+  //             console.log('deleted')
+  //           })
+  //         }else{
+  //         req.flash('message1',`Bikuza atari hejuru yayo wakoreye,Wakoreye ${paymentres[0].CashLeft}RWF,ibyo bindi n' ubujura, tuzafunga account yawe niwongera`);
+  //         res.redirect('/');
+  //       }
+  //     }
+  //    }) 
+})
 
-//   recordings.findOne({ RecordingId: Recordingid }).then((results) => {
-//     let newViews = results.views+1
-//     recordings.updateOne({ RecordingId: Recordingid }, { views: newViews }, function (err, docs) {
-//       if (err) {
-//         console.log(err)
-//       }
-//     })
-//   })
-//   UserModel.findOne({userName:UserName}).then((results)=>{
-//     let newViews = results.Views+1
+app.post('/addViews', (req, res) => {
+  let Recordingid = req.body.audioTitleViews;
+  let UserName = req.body.audioTitleViews2;
 
-//     UserModel.updateOne({userName:UserName},{Views:newViews},function (err, docs) {
-//       if (err) {
-//         console.log(err)
-//       }
-//     })
-//   })
+  recordings.findOne({ RecordingId: Recordingid }).then((results) => {
+    let newViews = results.views+1
+    recordings.updateOne({ RecordingId: Recordingid }, { views: newViews }, function (err, docs) {
+      if (err) {
+        console.log(err)
+      }
+    })
+  })
+  UserModel.findOne({userName:UserName}).then((results)=>{
+    let newViews = results.Views+1
 
-// })
-// app.post('/addViewsStatus', (req, res) => {
-//   let id = req.body.id
-//   recordings.findOne({ userId: id }).then((results) => {
-//     let newViews = results.views++
-//     recordings.updateOne({ userId: id }, { views: newViews }, function (err, docs) {
-//       if (err) {
-//         console.log(err)
-//       }
-//     })
-//   })
+    UserModel.updateOne({userName:UserName},{Views:newViews},function (err, docs) {
+      if (err) {
+        console.log(err)
+      }
+    })
+  })
 
-// })
-// app.post('/ChangeProfilePic',uresad.any(),(req,res)=>{
-//   const user = req.user;
-//   const originalname=req.user.userName
-//   var folderId = user.folderId;
-//   var fileMetadata = {
-//     'name': [originalname],
-//     parents: [folderId]
-//   };
-//   var media = {
-//     mimeType: req.files[0].mimetype,
-//     body: bufferToStream(req.files[0].buffer)
-//   };
-//   ChangeProfilePic(fileMetadata,media,user);
-// })
+})
+app.post('/addViewsStatus', (req, res) => {
+  let id = req.body.id
+  recordings.findOne({ userId: id }).then((results) => {
+    let newViews = results.views++
+    recordings.updateOne({ userId: id }, { views: newViews }, function (err, docs) {
+      if (err) {
+        console.log(err)
+      }
+    })
+  })
+
+})
+app.post('/ChangeProfilePic',uresad.any(),(req,res)=>{
+  const user = req.user;
+  const originalname=req.user.userName
+  var folderId = user.folderId;
+  var fileMetadata = {
+    'name': [originalname],
+    parents: [folderId]
+  };
+  var media = {
+    mimeType: req.files[0].mimetype,
+    body: bufferToStream(req.files[0].buffer)
+  };
+  ChangeProfilePic(fileMetadata,media,user);
+})
 // app.post('/ToTheDrive', uresad.any(), (req, res,next) => {
 //   const user = req.user;
 //   let files =req.files.reverse()[0];
