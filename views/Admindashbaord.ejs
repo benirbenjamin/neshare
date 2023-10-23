@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Raleway", sans-serif
+    }
+  </style>
+</head>
+
+<body class="w3-light-grey">
+
+
+
+
+
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main">
+
+    <!-- Header -->
+    <header class="w3-container" style="padding-top:22px">
+      <h5><b><i class="fa fa-dashboard"></i> Admin Dashboard</b></h5>
+    </header>
+    <div class="w3-row-padding w3-margin-bottom">
+
+
+      <div class="w3-quarter">
+        <div class="w3-container w3-black w3-padding-16">
+          <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3> </h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>total clicks from links</h4>
+        </div>
+      </div>
+      <% if (users.length>0){ %>
+        <div class="w3-quarter">
+          <div class="w3-container w3-black w3-text-white w3-padding-16">
+            <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+            <div class="w3-right">
+              <b>
+                <h3>
+                  <%=users.length%>
+                </h3>
+              </b>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Users</h4>
+          </div>
+        </div>
+        <% } %>
+          <% if (usersMonth){ %>
+            <div class="w3-quarter">
+              <div class="w3-container w3-black w3-text-white w3-padding-16">
+                <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                  <h3>
+                    <% const resultMonth1=usersMonth.filter(checkPayment1); const
+                      resultYear1=usersYear.filter(checkPayment1); const resultWeek1=usersWeek.filter(checkPayment1);
+                      function checkPayment1(payment) { return payment.CashLeft>= 1;
+                      }
+                      let total1=0;
+                      resultMonth1.forEach(element => {
+                      total1 += element.CashLeft
+                      });
+                      resultYear1.forEach(element => {
+                      total1 += element.CashLeft
+                      });
+                      resultWeek1.forEach(element => {
+                      total1 += element.CashLeft
+                      }); %><%=total1 %> Rwf
+                  </h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4> Money Out</h4>
+              </div>
+            </div>
+
+            <div class="w3-quarter">
+              <div class="w3-container w3-black w3-text-white w3-padding-16">
+                <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                  <h3>
+                    <% const resultMonth=usersMonth.filter(checkPayment); const
+                      resultYear=usersYear.filter(checkPayment); const resultWeek=usersWeek.filter(checkPayment);
+                      function checkPayment(payment) { return payment.PaymentStatus=='payed' ; } let
+                      month=resultMonth.length*1000; let week=resultYear.length*500; let year=resultWeek.length*10000;
+                      let total=month+week+year %>
+                      <%=total%> Rwf
+                  </h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Money In</h4>
+
+              </div>
+            </div>
+            <%}%>
+    </div>
+    <br>
+
+
+    <!-- Footer -->
+
+    <div class="w3-container w3-half w3-margin-top">
+      <h3>Post the links to be shared</h3>
+      <form method="post" action="/NewUrlTobeShared" class="w3-container w3-card-4">
+
+        <p>
+          <input class="w3-input" type="text" name="NewUrlTobeSharedred" style="width:90%" required>
+          <label>Link for sharing</label>
+        </p>
+        <p>
+          <textarea class="w3-input" type="text" name="DescriptionH" style="width:90%" required></textarea>
+          <label>Description</label>
+        </p>
+
+
+
+
+        <p>
+          <button class="w3-button w3-section w3-teal w3-ripple"> post the link </button>
+        </p>
+
+      </form>
+    </div>
+    <div class="w3-container w3-half w3-margin-top">
+      <h3>Links that are being shared and number of clicks</h3>
+      <div class="w3-container w3-card-4">
+        <ol>
+           <%if (link.length>0){
+           link.forEach(element => {%>
+            <li><%=element.link%>   <b>clicks</b> 0 <b>Date</b>    <%=element.Date%>
+            <p><%=element.Discription%></p> 
+            <form action="/DeleteTheLink" id="<%=element.id%>" method="post">
+              <input style="display: none;" type="text" name="identify"  value="<%=element.id%>">
+              </form>
+            <button onclick="document.getElementById('<%=element.id%>').submit();"
+              class="w3-button w3-section w3-teal w3-ripple">delete</button></li>
+          <%})};%>
+        </ol>
+        </p>
+
+      </div>
+    </div>
+
+    <div class="w3-container w3-half w3-margin-top">
+      <h3>Delete the User</h3>
+      <form action="/deleteUser" method="post" class="w3-container w3-card-4">
+        <p>
+          <input class="w3-input" type="text" name="userName" style="width:90%" required>
+          <label>name and Delete the user</label>
+        </p>
+        <p>
+          <button class="w3-button w3-section w3-teal w3-ripple">delete the user </button>
+        </p>
+
+      </form>
+
+    </div>
+
+
+
+    <div class="w3-container w3-half w3-margin-top">
+      <header class="w3-container w3-card-4 w3-theme">
+        <h1>Status Approve Board(month)</h1>
+      </header>
+
+      <div style="overflow-y: scroll; max-height: 350px;" class="w3-panel">
+        <%usersMonth.forEach(element=> {
+          if(element.WhatsappScreenShotPosts.length>0){
+          %>
+
+          <div class="w3-row w3-card-4">
+            <div class="w3-col s9 w3-container">
+              <h5>
+                <%=element.userName%>
+              </h5>
+              <button onclick="document.getElementById('<%=element.id%>').style.display='block'"
+                class="w3-button w3-section w3-teal w3-ripple">watch and Approve</button>
+            </div>
+            <div id="<%=element.id%>" class="w3-modal">
+              <span onclick="document.getElementById('<%=element.id%>').style.display='none'"
+                class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+              <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; max-width:700px;">
+                <h5>
+                  posted by <%=element.userName%>
+                </h5>
+                <%element.WhatsappScreenShotPosts.forEach(element2=> {%>
+                  <div class="w3-card">
+                    <div>
+                      <img src="https://drive.google.com/uc?export=download&id=<%=element2%>" style="width:100%">
+                    </div>
+                    <br>
+                    <div>
+                      <form action="/approveMonth" id="approveMonth" method="post">
+                        <input style="display: none;" type="text" value="<%=element.id%>" name="approveId" />
+                        <input type="number" placeholder="Views seen in a picture" name="views" />
+                        <input style="display: none;" type="text" value="<%=element2%>" name="approveIda" />
+
+                      </form>
+                      <form action="/abortMonth" id="abortMonth" method="post">
+                        <input style="display: none;" type="text" value="<%=element.id%>" name="abortId" />
+                        <input style="display: none;" type="text" value="<%=element2%>" name="abortIda" />
+                      </form>
+                    </div>
+
+                    <button onclick="document.getElementById('approveMonth').submit()"
+                      class="w3-button w3-green w3-padding-large">Approve</button>
+                    <button onclick="document.getElementById('abortMonth').submit()"
+                      class="w3-button w3-green w3-padding-large">Abort</button>
+
+                  </div>
+
+                  <br>
+                  <%});%>
+              </div>
+            </div>
+          </div>
+          <% }});%>
+            <hr>
+      </div>
+
+    </div>
+   >
+  
+
+
+
+    <div style="max-height: 1000px;overflow-y:scroll;" class="w3-container w3-half w3-margin-top">
+      <div class="w3-container w3-card-4">
+        <div class="w3-container">
+          <h2>Users packageStatus and clicks Collected</h2>
+          <p>Search for a name in the input field.</p>
+
+          <input class="w3-input w3-border w3-padding" type="text" placeholder="Search for names.." id="myInput"
+            onkeyup="myFunction()">
+           <div style="max-height: 200px;overflow:scroll;">
+          <table  class="w3-table-all w3-margin-top" id="myTable">
+            <tr>
+              <th style="width:50%;">Name</th>
+              <th style="width:25%;">Clicks</th>
+              <th style="width:25%;">Package</th>
+            </tr>
+            <%usersYear.forEach(element => {%>
+                <tr>
+                  <td style="width:50%;"><%=element.userName%></th>
+                  <td style="width:25%;"><%=element.clicks%></th>
+                  <td style="width:25%;">Year</th>
+                  </tr>
+              <% })%>
+              <%usersMonth.forEach(element => {%>
+                <tr>
+                  <td style="width:50%;"><%=element.userName%></th>
+                  <td style="width:25%;"><%=element.clicks%></th>
+                  <td style="width:25%;">Month</th>
+                  </tr>
+              <% })%>
+              <%usersWeek.forEach(element => {%>
+                <tr>
+                  <td style="width:50%;"><%=element.userName%></th>
+                  <td style="width:25%;"><%=element.clicks%></th>
+                  <td style="width:25%;">Week</th>
+                  </tr>
+              <% })%>
+          </table>
+        </div>
+     
+        </div>
+
+      </div>
+    </div>
+    <div style="max-height: 1000px;overflow-y:scroll;" class="w3-container w3-half w3-margin-top">
+      <div class="w3-container w3-card-4">
+        <div class="w3-container">
+          <h2>Users packageStatus and clicks Collected</h2>
+          <p>Search for a name in the input field.</p>
+
+          <input class="w3-input w3-border w3-padding" type="text" placeholder="Search for names.." id="myInput2"
+            onkeyup="myFunction()">
+           <div style="max-height: 200px;overflow:scroll;">
+          <table  class="w3-table-all w3-margin-top" id="myTable2">
+            <tr>
+              <th style="width:50%;">Name</th>
+              <th style="width:25%;">amount</th>
+             
+            </tr>
+            <%withdrawers.forEach(element => {%>
+                <tr>
+                  <td style="width:50%;"><%=element.userName%></th>
+                  <td style="width:25%;"><%=element.amount%></th>
+                  </tr>
+              <% })%>
+      
+          </table>
+        </div>
+     
+        </div>
+
+      </div>
+    </div>
+    <div class="w3-container w3-half w3-margin-top">
+      <form action="/SendMessageIndividual" method="post" id="sendMessage"
+        class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+        <h2 class="w3-center">Send Email to users</h2>
+
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+          <div class="w3-rest">
+            <input class="w3-input w3-border" id="Email" name="Email" type="text" placeholder=" Email">
+          </div>
+        </div>
+
+
+
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-header"></i></div>
+          <div class="w3-rest">
+            <input class="w3-input w3-border" name="title" type="text" placeholder="title">
+          </div>
+        </div>
+
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+          <div class="w3-rest">
+            <textarea class="w3-input w3-border" name="message" type="text" placeholder="Message"></textarea>
+          </div>
+        </div>
+        <br>
+        <input onclick="changeH()" class="w3-radio" type="radio" id="individual" checked>
+        <label>individual</label>
+        <br>
+        <input onclick="changeG()" class="w3-radio" type="radio" id="User">
+        <label>all User</label>
+
+        <p class="w3-center">
+          <button class="w3-button w3-section w3-blue w3-ripple"> Send </button>
+        </p>
+      </form>
+
+    </div>
+    <div class="w3-container w3-half w3-margin-top">
+
+    </div>
+
+
+
+    <!-- End page content -->
+  </div>
+
+
+
+  <script>
+    function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function myFunction2() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput2");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable2");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+    function changeG() {
+      document.getElementById('individual').checked = false
+      document.getElementById('Email').disabled = true
+
+    }
+    function changeH() {
+      document.getElementById('User').checked = false
+      document.getElementById('Email').disabled = false
+      document.getElementById('sendMessage').action = '/SendMessageAll'
+    }
+  </script>
+
+</body>
+
+</html>
