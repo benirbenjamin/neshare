@@ -663,9 +663,9 @@
                      text: 'Inkuru: ' + `<%=element.newsBody%>
 
                     <%=element.Title.slice(0,500)%> (...Irakomeza)
-                    sura neshare.netlify.app usome inkuru yose
+                    sura neshare.onrender.com usome inkuru yose
                     
-                   soma inkuru yose kuri  neshare.netlify.app/Inkuru/<%=element.id%>
+                   soma inkuru yose kuri  neshare.onrender.com/Inkuru/<%=element.id%>
 
                     yanditswe na  <%=element.UserName%>`,
                      };
@@ -808,13 +808,13 @@
                 <%links.forEach((element,index) => {%>
                   
                   <div style="cursor:pointer;word-wrap: break-word; height: fit-content;" class="w3-card w3-round w3-margin w3-teal">
-              <li  id="link4"><b>neshare.netlify.app/<%=index%>/<%=user.userName%></b>
+              <li  id="link4"><b>https://neshare.onrender.com/<%=index%>/<%=user.userName%></b>
              <p>
               <%=element.Discription%>
             </p>
               <button onclick="
               navigator.share({
-                url:'neshare.netlify.app/1/<%=user.userName%>',
+                url:`neshare.onrender.com/1/<%=user.userName%>`,
                 text:' <%=element.Discription%>'
               });" class="w3-button w3-round w3-white">Kora Share</button>
              </li>
@@ -967,7 +967,7 @@
                      const shareData = {
                      files: filesArray,
                      title: 'Neshare',
-                     text: 'sura neshare.netlify.app nawe ukorere cash'
+                     text: 'sura neshare.onrender.com nawe ukorere cash'
 
                          };
                    navigator.share(shareData);
@@ -1374,7 +1374,7 @@
             document.getElementById('id20').style.display = 'none';
           })
           window.onbeforeunload=()=>{
-            window.location.href = "neshare.netlify.app/";
+            window.location.href = "https://neshare.onrender.com/";
           }
           function ChangeToStories() {
             document.getElementById('Itangazo').style.display = 'none'

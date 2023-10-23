@@ -27,5 +27,5 @@ const UserSchema = new Schema({
 
 })
 
-const ClickableLink=mongoose.model('ClickableLink',UserSchema);
+const ClickableLink=mongoose.model('netli',UserSchema);
 module.exports={ClickableLink};
