@@ -659,13 +659,13 @@
 
                      const shareData = {
 
-                     title: 'Tipstalk',
+                     title: 'Neshare',
                      text: 'Inkuru: ' + `<%=element.newsBody%>
 
                     <%=element.Title.slice(0,500)%> (...Irakomeza)
-                    sura tipstalk.herokuapp.com  usome inkuru yose
+                    sura neshare.netlify.app usome inkuru yose
                     
-                   soma inkuru yose kuri  http://tipstalk.herokuapp.com/Inkuru/<%=element.id%>
+                   soma inkuru yose kuri  neshare.netlify.app/Inkuru/<%=element.id%>
 
                     yanditswe na  <%=element.UserName%>`,
                      };
@@ -808,13 +808,13 @@
                 <%links.forEach((element,index) => {%>
                   
                   <div style="cursor:pointer;word-wrap: break-word; height: fit-content;" class="w3-card w3-round w3-margin w3-teal">
-              <li  id="link4"><b>https://tipstalk.herokuapp.com/<%=index%>/<%=user.userName%></b>
+              <li  id="link4"><b>neshare.netlify.app/<%=index%>/<%=user.userName%></b>
              <p>
               <%=element.Discription%>
             </p>
               <button onclick="
               navigator.share({
-                url:'https://tipstalk.herokuapp.com/1/<%=user.userName%>',
+                url:'neshare.netlify.app/1/<%=user.userName%>',
                 text:' <%=element.Discription%>'
               });" class="w3-button w3-round w3-white">Kora Share</button>
              </li>
@@ -966,8 +966,8 @@
                     ];
                      const shareData = {
                      files: filesArray,
-                     title: 'Tipstalk',
-                     text: 'sura http://tipstalk.herokuapp.com nawe ukorere cash'
+                     title: 'Neshare',
+                     text: 'sura neshare.netlify.app nawe ukorere cash'
 
                          };
                    navigator.share(shareData);
@@ -1308,7 +1308,7 @@
           </div>
 
 
-    <center> <h4 style="margin-bottom: 0%;"><b>Neshare © Nebelu co.ltd 2022</b></h4></center>
+    <center> <h4 style="margin-bottom: 0%;"><b>Neshare © Nebelu co.ltd 2023</b></h4></center>
         </footer>
 
         <script id="appjs" src="../static/recorder/app.js"></script>
@@ -1374,7 +1374,7 @@
             document.getElementById('id20').style.display = 'none';
           })
           window.onbeforeunload=()=>{
-            window.location.href = "https://tipstalk.herokuapp.com/";
+            window.location.href = "neshare.netlify.app/";
           }
           function ChangeToStories() {
             document.getElementById('Itangazo').style.display = 'none'
