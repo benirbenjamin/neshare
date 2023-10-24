@@ -13,7 +13,7 @@ const Readable = require('stream').Readable;
 const {totheDrivers,totheDriversWhatsapp,ChangeProfilePic} = require('./googleDrive')
 const commentModel=require('./model/comments');
 const {ClickableLink}=require('./model/ClickableLinks');
-const {transferTobeneficiary} = require('./flutterWave')
+// const {transferTobeneficiary} = require('./flutterWave')
 const {paymentWeek,paymentMonth,paymentYear} = require('./model/moneyMakers');
 const recordings = require('./model/recordings');
 
@@ -23,7 +23,7 @@ require('./athentication/google')
 
 //Database connection
 
-const DB = "mongodb+srv://benir:12321@cluster0.h0jeqoe.mongodb.net/";
+const DB = "mongodb+srv://benir:1234@cluster0.h0jeqoe.mongodb.net/";
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((results) => {
 
